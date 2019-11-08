@@ -9,6 +9,9 @@ import {
 
 @Component
 export default class ResetButton extends Vue {
+  // 指定の方にcastする役割を持つ
+  // ここではstring型のみ許可されているが, 初期値を入れないケースの場合このままではコンパイルエラーになる
+  // プロパティ名の後にエクスクラメーションマークを入れることにより, 強制的に指定の型にcastする
   public initialValue!: string;
 
   @Prop() public value!: string;
