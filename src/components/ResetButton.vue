@@ -16,7 +16,7 @@ export default class ResetButton extends Vue {
 
   @Prop() public value!: string;
 
-  /* eslint class-methods-use-this: "off" */
+  /* eslint class-methods-use-this: 'off' */
   @Emit()
   input(value: string) {}
 

@@ -1,5 +1,7 @@
 <template>
-  <button @click="onClick">MyButton</button>
+  <button @click="onClick">
+    <slot></slot>
+  </button>
 </template>
 
 <script lang="ts">
@@ -13,12 +15,12 @@ export default class MyButton extends Vue {
 
   @Prop() public greet?: string;
 
-  /* eslint class-methods-use-this: "off" */
+  /* eslint class-methods-use-this: 'off' */
   @Emit()
   public clicked(count: number) {}
 
   public onClick() {
-    /* eslint no-alert: "off" */
+    /* eslint no-alert: 'off' */
     alert(this.greet);
     this.count += 1;
     this.clicked(this.count);
