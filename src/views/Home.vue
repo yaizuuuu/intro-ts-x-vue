@@ -5,8 +5,14 @@
     <p>{{ greetText }}</p>
     <p>挨拶した回数: {{ count }}</p>
     <p v-if="isRegular">毎度ご利用いただきありがとうございます。</p>
-    <MyButton :greet="greetText" @clicked="onMyButtonClicked"></MyButton>
+    <MyButton class="my-button"
+              :greet="greetText"
+              @clicked="onMyButtonClicked">挨拶する
+    </MyButton>
     <ResetButton v-model="greetText"></ResetButton>
+    <div>
+      <VueModuleDecorator/>
+    </div>
   </div>
 </template>
 
@@ -16,12 +22,14 @@ import { Vue, Component, Watch } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
 import MyButton from '@/components/MyButton.vue';
 import ResetButton from '@/components/ResetButton.vue';
+import VueModuleDecorator from '@/components/VueModuleDecorator.vue';
 
 @Component({
   components: {
     HelloWorld,
     MyButton,
     ResetButton,
+    VueModuleDecorator,
   },
 })
 export default class Home extends Vue {
@@ -36,7 +44,7 @@ export default class Home extends Vue {
   @Watch('count')
   public countChanged() {
     if (this.count === 5) {
-      /* eslint no-alert: "off" */
+      /* eslint no-alert: 'off' */
       alert('お前はもう常連だ');
     }
   }
