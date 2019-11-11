@@ -38,6 +38,12 @@ class Counter extends VuexModule implements ICounterState {
   public decrement100() {
     this.setDecrementCounter(this.decrementCounter - 100);
   }
+
+  @Action({ commit: 'setIncrementCounter' })
+  /* eslint class-methods-use-this: 'off' */
+  increment50() {
+    return 50;
+  }
 }
 
 const counterModule = getModule(Counter);
